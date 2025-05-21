@@ -22,9 +22,3 @@ LifeLens is an AI-powered web application designed to assist users during emerge
 | AI Model    | HuggingFace Inference API (DETR) |
 | Hosting     | Firebase Hosting (optional) |
 | Version Control | Git & GitHub |
-
-
-
-```bash
-git clone https://github.com/YOUR_USERNAME/LifeLens.git
-cd LifeLens/frontend
