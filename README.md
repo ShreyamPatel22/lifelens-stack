@@ -23,11 +23,7 @@ LifeLens is an AI-powered web application designed to assist users during emerge
 | Hosting     | Firebase Hosting (optional) |
 | Version Control | Git & GitHub |
 
----
 
-## 🚀 Getting Started (Local Setup)
-
-### 1. Clone the repository
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/LifeLens.git
