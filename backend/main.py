@@ -1,5 +1,5 @@
 # import required modules from fastAPI and other libraries
-from fastapi import FASTAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 import requests, os
 from dotenv import load_dotenv
