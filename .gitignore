@@ -12,4 +12,11 @@ backend/*.pyc
 
 .vscode/
 
-.firebase/
+.firebase/.DS_Store
+frontend/node_modules
+frontend/dist
+backend/venv
+__pycache__/
+*.pyc
+.env
+backend/.env
