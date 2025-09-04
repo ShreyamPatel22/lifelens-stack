@@ -59,15 +59,6 @@ export default function AlertForm() {
                 onChange={onChange}
                 required
             />
-            <textarea
-                className="rounded-xl border p-3"
-                rows="4"
-                placeholder="Describe the emergency…"
-                name="description"
-                value={form.description}
-                onChange={onChange}
-                required
-            />
             <select
                 className="rounded-xl border p-3"
                 name="severity"

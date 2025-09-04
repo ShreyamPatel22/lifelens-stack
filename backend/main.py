@@ -7,7 +7,8 @@ import requests
 import os
 import time
 from fastapi.responses import RedirectResponse, Response
-
+from pydantic import BaseModel
+from datetime import datetime
 
 
 
@@ -26,6 +27,34 @@ HF_MODEL_URL = os.getenv(
 # create FastAPI app instance
 app = FastAPI(title="LifeLens Backend", version="0.1.0")
 
+
+
+# ------Alerts API --------
+class AlertIn(BaseModel):
+    name: str
+    location: str
+    description: str
+    severity: str
+
+class AlertOut(AlertIn):
+    id: int
+    createdAt: str
+
+ALERTS: list[AlertOut] = []
+
+@app.post("/alerts", response_model=AlertOut)
+def create_alert(payload: AlertIn):
+    alert = AlertOut(
+        id = len(ALERTS) + 1,
+        createdAt=datetime.utcnow().isoformat() + "Z",
+        **payload.model_dump(),
+    )
+    ALERTS.append(alert)
+    return alert
+
+@app.get("/alerts", response_model = list[AlertOut])
+def list_alerts():
+    return ALERTS
 
 # for local host, using localhost:5173
 FRONTEND_ORIGINS = [

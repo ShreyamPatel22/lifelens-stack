@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
+import ImageAnalyzer from "./pages/ImageAnalyzer";
 
 function Navbar() {
   return (
@@ -10,6 +11,7 @@ function Navbar() {
         <div className= "flex items-center gap-4">
           <Link to="/" className= "hover:underline">Home</Link>
           <Link to="/dashboard" className="hover:underline">Dashboard</Link>
+          <Link to="/analyze" className="hover:underline">Image Analyzer</Link>
         </div>
       </nav>
     </header>
@@ -24,6 +26,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/analyze" element={<ImageAnalyzer />} />
         </Routes>
       </main>
     </Router>
