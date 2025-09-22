@@ -11,12 +11,13 @@ router = APIRouter()
 async def health():
     return {"status": "ok"}
 
-@router.post("/analyze", response_model=AnalyzeResponse)
+@router.post("/analyze-image", response_model=AnalyzeResponse)
 async def analyze_image(
     file: UploadFile = File(...),
     x_api_key: Optional[str] = Header(None, convert_underscores=False),
 ):
-    if x_api_key!= LIFELENS_API_KEY:
+
+    if LIFELENS_API_KEY and x_api_key != LIFELENS_API_KEY:
         raise HTTPException(status_code=401, detail="API key is required")
 
     if (file.content_type or "").lower() not in {"image/png","image/jpeg","image/webp"}:
@@ -39,5 +40,5 @@ async def analyze_image(
         "Follow on-screen first-aid guidance until help arrives.",
     ]
 
-    return AnalyzeResponse(message="Analysis complete", predictions=preds, recommended_actions=actions, id=str(uuid.uuid4()))
+    return AnalyzeResponse(id=str(uuid.uuid4()),message="Analysis complete", predictions=preds, recommended_actions=actions)
 
