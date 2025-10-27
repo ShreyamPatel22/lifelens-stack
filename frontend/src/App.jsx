@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import Landing from "./pages/Landing";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import ImageAnalyzer from "./pages/ImageAnalyzer";
+
 
 function Navbar() {
   // helper for active link styles
@@ -31,7 +33,8 @@ export default function App() {
       <Navbar />
       <main className="mx-auto max-w-6xl p-6">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/report" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/analyze" element={<ImageAnalyzer />} />
         </Routes>
